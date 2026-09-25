@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Main {
+  +main(String[])
+}
+
+class WorkoutData {
+  -age : int
+  -restingHeartRate : int
+  +getAge() : int
+  +getRestingHeartRate() : int
+}
+
+class WorkoutModel {
+  -data : WorkoutData
+  -startPulse : int
+  -targetPulse : int
+  -support : PropertyChangeSupport
+  +setData(WorkoutData)
+  +calculate()
+  +addPropertyChangeListener(...)
+  +getStartPulse() : int
+  +getTargetPulse() : int
+}
+
+class WorkoutController {
+  -model : WorkoutModel
+  -view : MainFrame
+  +openInputDialog()
+  +calculate(WorkoutData)
+}
+
+class MainFrame {
+  +showResults(...)
+  +showError(...)
+}
+
+class InputDialog {
+  +showDialog() : WorkoutData
+}
+
+Main --> WorkoutController
+WorkoutController --> WorkoutModel
+WorkoutController --> MainFrame
+WorkoutModel --> WorkoutData
+MainFrame --> InputDialog
+WorkoutModel ..> MainFrame : property change
+@enduml
