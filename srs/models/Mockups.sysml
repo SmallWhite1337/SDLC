@@ -5,7 +5,7 @@
  */
 package SubScopeMockups {
 
-    /** Экран 1. Вход и регистрация (REQ-FUNC-001, REQ-FUNC-002). */
+    /** Экран 1. Вход и регистрация (REQ-FUNC-001, REQ-FUNC-002, REQ-FUNC-021). */
     package LoginMockup {
         private import UiKit::*;
 
@@ -32,6 +32,9 @@ package SubScopeMockups {
                         }
                         part remember : Checkbox {
                             attribute :>> text = "Запомнить меня";
+                        }
+                        part forgot : Link {
+                            attribute :>> text = "Забыли пароль?";
                         }
                         part submit : Button {
                             attribute :>> text = "Войти";
